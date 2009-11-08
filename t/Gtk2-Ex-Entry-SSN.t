@@ -15,17 +15,19 @@ use_ok( 'Gtk2::Ex::Entry::SSN' );
 my $entry = Gtk2::Ex::Entry::SSN->new;
 ok( defined $entry, qq[widget created] );
 
+
 my @tests = (
     ['123 45 6789', '123456789', '123-45-6789'],
     ['123-45-6789', '123456789', '123-45-6789'],
     ['123 45 6789', '123456789', '123-45-6789'],
 );
 
+
 for( @tests) {
     no warnings;
     
     # test the parsing of input
-    $entry = Gtk2::Ex::Entry::SSN->new(value => $_->[0]);
+    $entry = Gtk2::Ex::Entry::SSN->new(value => $_->[0]);    
     is ($entry->get_value, $_->[1], qq[set value: $_->[0]]  );
     is ($entry->get_text , $_->[2], qq[test output: $_->[1]]);
 }

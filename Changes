@@ -3,3 +3,6 @@ Revision history for Perl extension Gtk2::Ex::Entry::SSN
 0.01  Fri Oct 23, 2009	20:06:00
 	- initial release
 
+0.02  Sun Nov 08, 2009  00:38:00
+	- no warnings when displaying an undef value
+	- no warnings when displaying value less than 09 characters

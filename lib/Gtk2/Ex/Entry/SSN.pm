@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 our $AUTHORITY = 'cpan:JHALLOCK';
 
 
@@ -231,11 +231,14 @@ sub _parse_input {
 sub _display_output {
     my $self  = shift;
     my $value = $self->get_value;
+    
+    no warnings;
     my @parts = (
         substr($value,0,3),
         substr($value,3,2),
         substr($value,5,4)
     );
+    use warnings;
     
     my $output = $value ? sprintf ('%03d-%02d-%04d', @parts) : '';
     $self->set_text($output);
